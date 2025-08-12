@@ -158,4 +158,10 @@ rm -rf /home/user/OldProjects/
 ---
 
 ```
+# Basic Linux commands
+'''bash
+>>pwd
+lkdfsl
+'''
+##ls 
 
