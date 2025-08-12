@@ -8,7 +8,8 @@
 📌 Output example:
 
 ```
-/d/UPES/Linux_Lab
+/home/mudit
+
 ```
 ## ls command
 
@@ -19,7 +20,9 @@
 📌 Output of ls:
 
 ```
- images/  'Lab-3 Part2.md'   Lab3-Basic_Commands.md   Lab3-Exp1.md   Lab3-Part3.md   README.md   Test2/
+Desktop    Downloads  Linux  Music     Public  Templates
+Documents  LAB        LINUX  Pictures  snap    Videos
+
 ```
 
 ### ls flags
@@ -33,20 +36,36 @@ The ls command is linux allows to to view all the files and folder in current wo
 📌 Output of ls - la:
 
 ```
-vibhu@VibhuG MINGW64 /d/UPES/Linux_Lab (main)
-$ ls -la
-total 26
-drwxr-xr-x 1 vibhu 197609    0 Aug 12 12:12  ./
-drwxr-xr-x 1 vibhu 197609    0 Aug 12 12:12  ../
-drwxr-xr-x 1 vibhu 197609    0 Aug 12 12:14  .git/
-drwxr-xr-x 1 vibhu 197609    0 Aug 12 12:12  images/
--rw-r--r-- 1 vibhu 197609 3872 Aug 12 12:12 'Lab-3 Part2.md'
--rw-r--r-- 1 vibhu 197609 3380 Aug 12 12:12  Lab3-Basic_Commands.md
--rw-r--r-- 1 vibhu 197609   23 Aug 12 12:13  Lab3-Exp1.md
--rw-r--r-- 1 vibhu 197609 6880 Aug 12 12:12  Lab3-Part3.md
--rw-r--r-- 1 vibhu 197609  395 Aug 12 12:12  README.md
-drwxr-xr-x 1 vibhu 197609    0 Aug 12 12:12  Test2/
-```
+total 112
+drwxr-x--- 22 mudit mudit 4096 Aug 11 15:52 .
+drwxr-xr-x  3 root  root  4096 Aug 10 00:22 ..
+-rw-------  1 mudit mudit 4169 Aug 11 17:11 .bash_history
+-rw-r--r--  1 mudit mudit  220 Mar  5 08:05 .bash_logout
+-rw-r--r--  1 mudit mudit 3771 Mar  5 08:05 .bashrc
+drwx------ 20 mudit mudit 4096 Aug 11 15:04 .cache
+drwx------ 17 mudit mudit 4096 Aug 12 11:22 .config
+drwxr-xr-x  2 mudit mudit 4096 Aug 10 11:57 Desktop
+drwxr-xr-x  2 mudit mudit 4096 Aug 11 15:25 Documents
+drwxrwxr-x  3 mudit mudit 4096 Aug 10 00:50 .dotnet
+drwxr-xr-x  2 mudit mudit 4096 Aug 12 11:21 Downloads
+-rw-rw-r--  1 mudit mudit   60 Aug 10 13:36 .gitconfig
+drwx------  2 mudit mudit 4096 Aug 10 11:31 .gnupg
+drwxrwxr-x  2 mudit mudit 4096 Aug 10 01:39 LAB
+drwxrwxr-x  3 mudit mudit 4096 Aug 12 12:44 Linux
+drwxrwxr-x  3 mudit mudit 4096 Aug 12 12:44 LINUX
+drwx------  4 mudit mudit 4096 Aug 10 00:23 .local
+drwxr-xr-x  2 mudit mudit 4096 Aug 10 00:23 Music
+drwxr-xr-x  3 mudit mudit 4096 Aug 11 15:27 Pictures
+drwx------  3 mudit mudit 4096 Aug 10 00:37 .pki
+-rw-r--r--  1 mudit mudit  807 Mar  5 08:05 .profile
+drwxr-xr-x  2 mudit mudit 4096 Aug 10 00:23 Public
+drwx------  8 mudit mudit 4096 Aug 11 12:00 snap
+drwx------  2 mudit mudit 4096 Aug 11 16:47 .ssh
+-rw-r--r--  1 mudit mudit    0 Aug 10 00:48 .sudo_as_admin_successful
+drwxr-xr-x  2 mudit mudit 4096 Aug 10 00:23 Templates
+drwxr-xr-x  2 mudit mudit 4096 Aug 10 00:23 Videos
+drwxrwxr-x  4 mudit mudit 4096 Aug 10 00:38 .vscode
+
 
 ## Image Screen Shot
 
