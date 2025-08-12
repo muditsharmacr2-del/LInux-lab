@@ -141,6 +141,10 @@ rm -rf /home/user/OldProjects/
 ![Screenshot of cp command](cp.png)
 
 
+# Basic Linux commands
+'''bash
+>>pwd
+
 
 ---
 
@@ -158,10 +162,4 @@ rm -rf /home/user/OldProjects/
 ---
 
 ```
-# Basic Linux commands
-'''bash
->>pwd
-lkdfsl
-'''
-##ls 
 
