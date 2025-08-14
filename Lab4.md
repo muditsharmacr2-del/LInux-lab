@@ -263,5 +263,4 @@ ln original.txt hardlink.txt
 # Symbolic (soft) link
 ln -s /path/to/original symlinkname
 ```
-
----
+![screenshot of cp2](cp2.png)--
