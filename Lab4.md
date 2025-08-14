@@ -227,7 +227,7 @@ grep -n "warning" logfile.txt
 
 ---
 
-### **`tar`** – Archive Files
+### **`tar`** – Archive Files ...
 
 ```bash
 # Create archive
