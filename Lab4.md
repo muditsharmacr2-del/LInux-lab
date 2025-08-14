@@ -264,11 +264,4 @@ ln original.txt hardlink.txt
 ln -s /path/to/original symlinkname
 ```
 ![screenshot of cp2](cp2.png)--
- ldlslslsk
- slls
-
- bj
- qwqwq 
- qw
- lhbh
- iibi4
+ 
