@@ -25,7 +25,8 @@ touch existing.txt              # Update timestamp of existing file
 touch file2.txt file3.txt       # Create multiple files
 ````
 
-![touch example](images/touch-demo.png)
+![screenshot of sc1](sc1.png)
+
 *Creating and updating files in Ubuntu.*
 
 > 💡 **Tip:** Great for quickly creating placeholder files.
