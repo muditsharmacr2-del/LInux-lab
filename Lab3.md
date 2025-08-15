@@ -22,7 +22,7 @@ mudit@mudit-Inspiron-3505:~$ pwd
 💡 **Tip:** Always check your working directory before creating, deleting, or moving files.
 
 🖼 **Screenshot:**
-![pwd command output](./images/s1.png)
+![Screenshot of s1](s1.png)
 
 ---
 
@@ -45,7 +45,7 @@ data1.txt   Downloads LINUX   Projects   snap       Videos
   *(Colors depend on your terminal theme.)*
 
 🖼 **Screenshot:**
-![ls command output](./images/s2.png)
+![Screenshot of s2](s2.png)
 
 ---
 
@@ -69,7 +69,7 @@ drwxr-xr-x  3 root  root  4096 Aug 10 00:22 ..
 ```
 
 🖼 **Screenshot:**
-![ls -la command output](./images/s3.png)
+![Screenshot of s3](s3.png)
 
 ---
 
