@@ -71,6 +71,7 @@ drwxr-xr-x  3 root  root  4096 Aug 10 00:22 ..
 🖼 **Screenshot:**
 ![Screenshot of s3](s3.png)
 
+
 ---
 
 ## 🧠 Quick Recap
