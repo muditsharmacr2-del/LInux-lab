@@ -29,9 +29,10 @@ It’s designed with **real terminal outputs, screenshots, and cheat sheets** so
 
 ```
 Linux_Lab/
-│── Lab3.md     → Basic Linux Commands (pwd, ls, etc.)
-│── linux5.md   → Advanced Linux File Commands (touch, cp, rm, chmod, grep, tar…)
 │── README.md   → Project Overview
+│── Lab1.md     → Basic Linux Commands (pwd, ls, etc.)
+│── lab2.md   → Advanced Linux File Commands (touch, cp, rm, chmod, grep, tar…)
+
 ```
 
 ---
@@ -80,10 +81,10 @@ Each lab has **screenshots and outputs** for better understanding.
 ## 📷 Example Screenshots
 
 **`pwd` command output**  
-![pwd example](s1.png)  
+![screenshot of s1](s1.png)  
 
 **`ls` with flags**  
-![ls example](s2.png)  
+![screenshot of s2](s2.png)  
 
 ---
 
@@ -108,5 +109,5 @@ This repo makes it **visual, interactive, and practical** so you can:
 
 ---
 
-🔥 Start with **[Lab3.md](Lab3.md)** and work your way to **[linux5.md](linux5.md)**.  
+🔥 Start with **[Lab1.md](Lab1.md)** and work your way to **[lab2.md](lab2.md)**.  
 Happy Learning! 🚀🐧
