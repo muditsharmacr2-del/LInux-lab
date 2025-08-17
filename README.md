@@ -40,14 +40,14 @@ Linux_Lab/
 ## 📘 Lab Roadmap
 
 ### 🟢 Beginner Labs
-1️⃣ [**Lab3.md – Basic Linux Commands**](Lab3.md)  
+1️⃣ [**Lab1.md – Basic Linux Commands**](Lab1.md)  
    - 📍 `pwd` → Print Working Directory  
    - 📂 `ls` → List Files & Directories  
    - 🎯 Using flags (`-l`, `-a`, `-la`)  
    - 🖼 Includes screenshots & real examples  
 
 ### 🔵 Advanced Labs
-2️⃣ [**linux5.md – Advanced File Commands Cheat Sheet**](linux5.md)  
+2️⃣ [**lab2.md – Advanced File Commands Cheat Sheet**](lab2.md)  
    - 📄 File Manipulation (`touch`, `cp`, `mv`, `rm`, `cat`, `less`, `head`, `tail`)  
    - 🔐 Permissions & Ownership (`ls -l`, `chmod`, `chown`, `chgrp`)  
    - 🚀 Advanced Operations (`find`, `grep`, `tar`, `gzip`, `ln`)  
