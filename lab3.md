@@ -1,131 +1,182 @@
-Got it ✅ You want me to create a **good-looking, engaging, interesting Markdown (`.md`) file** for a **Shell Scripting tutorial**.
-Here’s a professional and attractive one you can directly use in your GitHub repo:
-
----
-
 ````markdown
-# 🐚 Shell Scripting Tutorial  
-
-Welcome to the **Shell Scripting Tutorial** 🚀  
-This guide will help you learn Linux shell commands and scripting in an **engaging and practical way**.  
+# 🐚 Shell Tutorial – Mastering File Permissions with `chmod` and `chown`
 
 ---
 
-## 📌 What is Shell Scripting?  
-A **Shell Script** is simply a file with a series of commands written in the **Linux shell language** (like `bash`).  
-It allows you to:  
-- ✅ Automate repetitive tasks  
-- ✅ Save time and effort  
-- ✅ Create your own commands  
+## 🌟 Why Learn File Permissions?
+In Linux, **file permissions** are the first layer of security. They decide **who** can *read, write, or execute* a file. Mastering this makes you more confident in handling files, scripts, and projects. 🚀
 
 ---
 
-## ⚡ Basic Linux Commands  
+## 🔹 1. Understanding File Permissions in Linux
 
-| Command       | Description                        | Example Output |
-|---------------|------------------------------------|----------------|
-| `whoami`      | Shows current logged-in user       | `mudit` |
-| `pwd`         | Prints current working directory   | `/home/mudit` |
-| `ls`          | Lists files & directories          | `file1 file2 dir1` |
-| `echo`        | Prints text/message                | `echo "Hello World"` → `Hello World` |
+Every file/directory has three categories of users:
+
+- 👤 **Owner** → The user who created the file.
+- 👥 **Group** → A group of users who share access.
+- 🌍 **Others** → Everyone else.
+
+### Permission Types
+- **r (read)** → View file contents (**4**)
+- **w (write)** → Modify file contents (**2**)
+- **x (execute)** → Run file/script (**1**)
+
+👉 Each permission is represented as a **number**: `r=4`, `w=2`, `x=1`.
 
 ---
 
-## 🛠️ Writing Your First Shell Script  
-
-1. Create a new file:  
-   ```bash
-   nano hello.sh
+### 📂 Permission Layout Example
+Command:
+```bash
+ls -l file.txt
 ````
 
-2. Add this code:
-
-   ```bash
-   #!/bin/bash
-   echo "Hello, World! 🚀"
-   ```
-
-3. Save and exit (`CTRL + O`, `CTRL + X`).
-
-4. Give execute permission:
-
-   ```bash
-   chmod +x hello.sh
-   ```
-
-5. Run the script:
-
-   ```bash
-   ./hello.sh
-   ```
-
-✅ Output:
+Output:
 
 ```
-Hello, World! 🚀
+-rwxr-xr--
 ```
+
+Breakdown:
+
+* `-` → Regular file (`d` = directory, `l` = link)
+* `rwx` → Owner = read, write, execute
+* `r-x` → Group = read, execute
+* `r--` → Others = read only
 
 ---
 
-## 🔑 File Permissions (Quick Guide)
+## 🔹 2. `chmod` – Change File Permissions
 
-| Number | Permission             | Symbol |
-| ------ | ---------------------- | ------ |
-| `7`    | Read + Write + Execute | `rwx`  |
-| `6`    | Read + Write           | `rw-`  |
-| `5`    | Read + Execute         | `r-x`  |
-| `4`    | Read only              | `r--`  |
-| `0`    | No permission          | `---`  |
-
-👉 Example:
+### ⚙️ Syntax
 
 ```bash
-chmod 755 hello.sh
+chmod [options] mode filename
 ```
 
-Means: Owner = `rwx`, Group = `r-x`, Others = `r-x`.
+Modes can be set in **numeric (octal)** or **symbolic** form.
 
 ---
 
-## 🔄 Example Script – Loop
+### (A) Numeric (Octal) Method
+
+Each digit is a sum of permissions:
+
+* `7 = rwx`
+* `6 = rw-`
+* `5 = r-x`
+* `4 = r--`
+* `0 = ---`
+
+✅ Example:
 
 ```bash
-#!/bin/bash
-for i in 1 2 3 4 5
-do
-  echo "Iteration $i"
-done
+chmod 755 script.sh
 ```
 
-✅ Output:
+Meaning:
+
+* Owner → `rwx`
+* Group → `r-x`
+* Others → `r-x`
+
+📊 Visualization:
 
 ```
-Iteration 1
-Iteration 2
-Iteration 3
-Iteration 4
-Iteration 5
+7 5 5
+rwx r-x r-x
 ```
 
 ---
 
-## 🎯 Next Steps
+### (B) Symbolic Method
 
-* Learn about **variables & conditions (`if-else`)**
-* Practice **loops** (`for`, `while`, `until`)
-* Explore **functions** in shell scripting
+Use letters + operators:
 
----
+* `u` (user/owner), `g` (group), `o` (others), `a` (all)
+* `+` (add), `-` (remove), `=` (set exact)
 
-## 🌟 Pro Tip
-
-Always start your script with:
+✅ Examples:
 
 ```bash
-#!/bin/bash
+chmod u+x script.sh     # Add execute for owner
+chmod g-w notes.txt     # Remove write from group
+chmod o=r file.txt      # Set others to read only
+chmod a+r report.txt    # Everyone gets read access
 ```
-
-This is called a **shebang**, and it tells Linux to run the file using `bash`.
 
 ---
 
+### (C) Recursive Changes
+
+Apply changes to all files/subfolders:
+
+```bash
+chmod -R 755 mydir/
+```
+
+---
+
+## 🔹 3. `chown` – Change File Ownership
+
+### ⚙️ Syntax
+
+```bash
+chown [options] new_owner:new_group filename
+```
+
+✅ Examples:
+
+```bash
+chown mudit file.txt           # Change owner to mudit
+chown mudit:dev file.txt       # Change owner to mudit, group to dev
+chown :dev file.txt            # Change only group to dev
+chown -R mudit:dev /project    # Recursive ownership change
+```
+
+---
+
+## 🔹 4. Putting It All Together
+
+```bash
+touch project.sh
+ls -l project.sh
+```
+
+Output:
+
+```
+-rw-r--r-- 1 mudit dev 0 Aug 19 12:00 project.sh
+```
+
+Now:
+
+```bash
+chmod 700 project.sh       # Owner = rwx, no access to others
+chmod u+x,g-w project.sh   # Add execute to owner, remove write for group
+chown root:admin project.sh # Change owner to root, group to admin
+```
+
+---
+
+## 🔹 5. Quick Reference Cheat Sheet 📑
+
+| Numeric | Permission | Meaning         |
+| ------- | ---------- | --------------- |
+| 0       | ---        | No access       |
+| 1       | --x        | Execute only    |
+| 2       | -w-        | Write only      |
+| 3       | -wx        | Write + Execute |
+| 4       | r--        | Read only       |
+| 5       | r-x        | Read + Execute  |
+| 6       | rw-        | Read + Write    |
+| 7       | rwx        | Full access     |
+
+---
+
+✅ **Pro Tip:** Use **numeric mode** for quick settings (e.g., `755`, `644`) and **symbolic mode** for fine-tuning (`u+x`, `g-w`).
+
+✨ With `chmod` + `chown`, you’re now in full control of your Linux files! 🎉
+
+```
+```
