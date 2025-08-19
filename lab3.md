@@ -1,133 +1,148 @@
-
+```markdown
 # 🐚 Shell Tutorial – File Permissions with `chmod` and `chown`
 
 ---
 
-## 🔹 1. Understanding File Permissions in Linux
+## 🌟 Introduction
+In Linux, **file permissions** are a key part of system security. They define **who** can read, write, or execute a file or directory. Two important commands for managing permissions are:
+- **`chmod`** → Change file permissions
+- **`chown`** → Change file ownership
 
-Each file/directory in Linux has:
+This tutorial will help you master these commands with clear explanations, diagrams, and examples. 🚀
 
-* **Owner** → The user who created the file.
-* **Group** → A group of users who may share access.
-* **Others** → Everyone else.
+---
+
+## 🔹 1. Understanding File Permissions
+Each file/directory has three categories of users:
+- 👤 **Owner (User)** → The file creator
+- 👥 **Group** → Users in the same group
+- 🌍 **Others** → Everyone else
 
 ### Permission Types
+- **r (read)** → View file contents/list directory
+- **w (write)** → Modify contents/add or remove files
+- **x (execute)** → Run program/enter directory
 
-* **r** → Read (4 in numeric)
-* **w** → Write (2 in numeric)
-* **x** → Execute (1 in numeric)
-
-### Permission Layout
-
-Example from `ls -l`:
+### Visual Diagram 🖼️
+```
 
 ```
--rwxr-xr--
+       [ File / Directory ]
+             / | \
+            /  |  \
+           /   |   \
+       Owner  Group  Others
+         |      |      |
+    (r,w,x) (r,w,x) (r,w,x)
 ```
+
+````
+Each category (Owner, Group, Others) can have different permissions.
+
+### Example from `ls -l`
+```bash
+-rwxr-xr-- 1 mudit dev 1024 Aug 19 file.sh
+````
 
 Breakdown:
 
-* `-` → Regular file (`d` = directory, `l` = symlink, etc.)
-* `rwx` → Owner has read, write, execute
-* `r-x` → Group has read, execute
-* `r--` → Others have read only
+* `-` → Regular file (`d` = directory, `l` = link)
+* `rwx` → Owner has full rights
+* `r-x` → Group has read + execute
+* `r--` → Others can only read
 
 ---
 
 ## 🔹 2. `chmod` – Change File Permissions
 
-### Syntax
+### ⚙️ Syntax
 
 ```bash
 chmod [options] mode filename
 ```
 
-Modes can be set in **numeric (octal)** or **symbolic** form.
-
----
+Modes can be **numeric (octal)** or **symbolic**.
 
 ### (A) Numeric (Octal) Method
 
-Each permission is represented as a number:
+Each permission is a number:
 
-* Read = 4
-* Write = 2
-* Execute = 1
+* **4** = Read
+* **2** = Write
+* **1** = Execute
 
-Add them up:
+Add them up for each category:
 
 * `7 = rwx`
 * `6 = rw-`
 * `5 = r-x`
 * `4 = r--`
-* `0 = ---`
 
-#### Example:
+✅ Example:
 
 ```bash
-chmod 755 script.sh
+chmod 755 file.sh
 ```
 
-Meaning:
+Means → Owner: `rwx`, Group: `r-x`, Others: `r-x`
 
-* Owner: 7 → `rwx`
-* Group: 5 → `r-x`
-* Others: 5 → `r-x`
+📊 Visualization:
+
+```
+7 5 5
+rwx r-x r-x
+```
 
 ---
 
 ### (B) Symbolic Method
 
-Use `u` (user/owner), `g` (group), `o` (others), `a` (all).
-Operators:
+Use:
 
-* `+` → Add permission
-* `-` → Remove permission
-* `=` → Assign exact permission
+* `u` (user), `g` (group), `o` (others), `a` (all)
+* `+` add, `-` remove, `=` set exact
 
-#### Examples:
+✅ Examples:
 
 ```bash
-chmod u+x script.sh     # Add execute for owner
-chmod g-w notes.txt     # Remove write from group
-chmod o=r file.txt      # Set others to read only
-chmod a+r report.txt    # Everyone gets read access
+chmod u+x file.sh     # Add execute to owner
+chmod g-w notes.txt   # Remove write for group
+chmod o=r file.txt    # Others can only read
+chmod a+r report.txt  # Everyone can read
 ```
 
 ---
 
 ### (C) Recursive Changes
 
-```bash
-chmod -R 755 /mydir
-```
+Apply to all files/subfolders:
 
-* `-R` → applies changes recursively to all files/subdirectories.
+```bash
+chmod -R 755 mydir/
+```
 
 ---
 
 ## 🔹 3. `chown` – Change File Ownership
 
-### Syntax
+### ⚙️ Syntax
 
 ```bash
 chown [options] new_owner:new_group filename
 ```
 
-### Examples:
+✅ Examples:
 
 ```bash
-chown vibhu file.txt           # Change owner to user 'vibhu'
-chown vibhu:dev file.txt       # Change owner to 'vibhu' and group to 'dev'
-chown :dev file.txt            # Change only group to 'dev'
-chown -R vibhu:dev /project    # Recursive ownership change
+chown mudit file.txt           # Change owner to mudit
+chown mudit:dev file.txt       # Owner = mudit, Group = dev
+chown :dev file.txt            # Change only group
+chown -R mudit:dev /project    # Apply recursively
 ```
 
 ---
 
-## 🔹 4. Putting It All Together
-
-### Example Scenario
+## 🔹 4. Example Scenario
 
 ```bash
 touch project.sh
@@ -137,34 +152,47 @@ ls -l project.sh
 Output:
 
 ```
--rw-r--r-- 1 vibhu dev 0 Aug 19 12:00 project.sh
+-rw-r--r-- 1 mudit dev 0 Aug 19 12:00 project.sh
 ```
 
 Now:
 
 ```bash
 chmod 700 project.sh       # Only owner has rwx
-chmod u+x,g-w project.sh   # Add execute for user, remove write for group
-chown root:admin project.sh # Change owner to root and group to admin
+chmod u+x,g-w project.sh   # Add execute for owner, remove write from group
+chown root:admin project.sh # Change owner to root, group to admin
+```
+
+✅ Final permissions:
+
+```
+-rwxr----- 1 root admin 0 Aug 19 12:00 project.sh
 ```
 
 ---
 
-## 🔹 5. Quick Reference Table
+## 🔹 5. Quick Reference Table 📑
 
-| Numeric | Permission | Meaning      |
-| ------- | ---------- | ------------ |
-| 0       | ---        | No access    |
-| 1       | --x        | Execute only |
-| 2       | -w-        | Write only   |
-| 3       | -wx        | Write + Exec |
-| 4       | r--        | Read only    |
-| 5       | r-x        | Read + Exec  |
-| 6       | rw-        | Read + Write |
-| 7       | rwx        | Full access  |
-
----
-
-✅ **Key Tip**: Use **numeric for quick settings** (e.g., 755, 644) and **symbolic for fine adjustments** (`u+x`, `g-w`).
+| Numeric | Permission | Meaning         |
+| ------- | ---------- | --------------- |
+| 0       | ---        | No access       |
+| 1       | --x        | Execute only    |
+| 2       | -w-        | Write only      |
+| 3       | -wx        | Write + Execute |
+| 4       | r--        | Read only       |
+| 5       | r-x        | Read + Execute  |
+| 6       | rw-        | Read + Write    |
+| 7       | rwx        | Full access     |
 
 ---
+
+## 🌟 Conclusion
+
+* Use **`chmod`** to set permissions (`rwx` → numeric or symbolic).
+* Use **`chown`** to change file ownership.
+* Always apply the principle of least privilege for security. 🔐
+
+✨ You are now ready to manage Linux file permissions like a pro!
+
+```
+```
