@@ -69,4 +69,4 @@ Output:
 -rw-r--r-- 1 newuser newgroup 0 Aug 19 14:02 testfile.txt
 ```
 
----
+---![Screenshot of s5.png](s5.png)
