@@ -196,3 +196,4 @@ chown root:admin project.sh # Change owner to root, group to admin
 
 ```
 ```
+![screenshot of s4](s4.png)
