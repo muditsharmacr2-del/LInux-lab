@@ -70,7 +70,7 @@ rm -r foldername/               # Remove a directory recursively
 rm -rf foldername/              # Force remove without prompt
 ```
 
-![rm example](images/rm-demo.png)
+![screenshot of s7](s7).png)
 
 > ⚠️ **Danger:** `rm -rf` permanently deletes without recovery!
 
