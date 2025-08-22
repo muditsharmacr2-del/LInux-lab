@@ -1,17 +1,28 @@
-Practice Experiment
+# 🧪 Linux Lab – File Ownership & Permissions  
+
+This lab walks you through creating users, groups, and managing file ownership using **`chown`** and related commands in Linux.  
+
 ---
 
-### 🔹 1. Create a new user
+## 🔖 Badges  
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)  
+![Bash](https://img.shields.io/badge/Bash-121011?style=for-the-badge&logo=gnu-bash&logoColor=white)  
+![Shell Scripting](https://img.shields.io/badge/Shell_Scripting-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)  
 
+---
+
+## 📌 Steps
+
+### 1️⃣ Create a New User  
 ```bash
 sudo useradd -m newuser
-```
 
-* `-m` → creates a home directory `/home/newuser`.
+
+* `-m` → Creates a home directory at `/home/newuser`.
 
 ---
 
-### 🔹 2. Create a new group
+### 2️⃣ Create a New Group
 
 ```bash
 sudo groupadd newgroup
@@ -19,29 +30,29 @@ sudo groupadd newgroup
 
 ---
 
-### 🔹 3. Add the user to the group
+### 3️⃣ Add User to Group
 
 ```bash
 sudo usermod -aG newgroup newuser
 ```
 
-* `-aG` → append user to the supplementary group (doesn’t remove existing groups).
+* `-aG` → Appends the user to the group without removing existing ones.
 
 ---
 
-### 🔹 4. Create a file (as current user, e.g. root or your login user)
+### 4️⃣ Create a File (as current user)
 
 ```bash
 touch testfile.txt
 ```
 
-Check ownership:
+🔍 Check ownership:
 
 ```bash
 ls -l testfile.txt
 ```
 
-Example:
+Example output:
 
 ```
 -rw-r--r-- 1 ubuntu ubuntu 0 Aug 19 14:02 testfile.txt
@@ -49,7 +60,7 @@ Example:
 
 ---
 
-### 🔹 5. Assign ownership of the file to `newuser` and `newgroup`
+### 5️⃣ Assign Ownership to `newuser:newgroup`
 
 ```bash
 sudo chown newuser:newgroup testfile.txt
@@ -57,16 +68,33 @@ sudo chown newuser:newgroup testfile.txt
 
 ---
 
-### 🔹 6. Verify ownership
+### 6️⃣ Verify Ownership
 
 ```bash
 ls -l testfile.txt
 ```
 
-Output:
+Expected output:
 
 ```
 -rw-r--r-- 1 newuser newgroup 0 Aug 19 14:02 testfile.txt
 ```
 
----![Screenshot of s5.png](s5.png)
+---
+
+## 📸 Screenshot Example
+
+![Ownership verification](s5.png)
+
+---
+
+## ✅ Key Takeaways
+
+* **`useradd -m`** → Creates a new user with a home directory.
+* **`groupadd`** → Creates a new group.
+* **`usermod -aG`** → Adds user to group without affecting existing memberships.
+* **`chown user:group file`** → Changes file ownership.
+* **`ls -l`** → Verifies permissions & ownership.
+
+---
+---
