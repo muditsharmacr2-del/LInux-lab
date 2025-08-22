@@ -1,182 +1,168 @@
-````markdown
 # 🐚 Shell Tutorial – Mastering File Permissions with `chmod` and `chown`
 
----
-
-## 🌟 Why Learn File Permissions?
-In Linux, **file permissions** are the first layer of security. They decide **who** can *read, write, or execute* a file. Mastering this makes you more confident in handling files, scripts, and projects. 🚀
-
----
-
-## 🔹 1. Understanding File Permissions in Linux
-
-Every file/directory has three categories of users:
-
-- 👤 **Owner** → The user who created the file.
-- 👥 **Group** → A group of users who share access.
-- 🌍 **Others** → Everyone else.
-
-### Permission Types
-- **r (read)** → View file contents (**4**)
-- **w (write)** → Modify file contents (**2**)
-- **x (execute)** → Run file/script (**1**)
-
-👉 Each permission is represented as a **number**: `r=4`, `w=2`, `x=1`.
+Linux is built on a **multi-user** system, and managing **file permissions** is a critical skill.  
+This tutorial will help you **understand and master** file permissions with two powerful commands:  
+- **`chmod`** → Change file **permissions** (read, write, execute).  
+- **`chown`** → Change file **ownership** (user and group).  
 
 ---
 
-### 📂 Permission Layout Example
-Command:
+## 🔖 Badges  
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)  
+![Bash](https://img.shields.io/badge/Bash-121011?style=for-the-badge&logo=gnu-bash&logoColor=white)  
+![File Permissions](https://img.shields.io/badge/File_Permissions-0078D6?style=for-the-badge)  
+
+---
+
+## 📌 Understanding File Permissions
+
+Check file details with:  
 ```bash
-ls -l file.txt
+
 ````
 
-Output:
+Example output:
 
-```
--rwxr-xr--
-```
-
-Breakdown:
-
-* `-` → Regular file (`d` = directory, `l` = link)
-* `rwx` → Owner = read, write, execute
-* `r-x` → Group = read, execute
-* `r--` → Others = read only
-
----
-
-## 🔹 2. `chmod` – Change File Permissions
-
-### ⚙️ Syntax
-
-```bash
-chmod [options] mode filename
-```
-
-Modes can be set in **numeric (octal)** or **symbolic** form.
-
----
-
-### (A) Numeric (Octal) Method
-
-Each digit is a sum of permissions:
-
-* `7 = rwx`
-* `6 = rw-`
-* `5 = r-x`
-* `4 = r--`
-* `0 = ---`
-
-✅ Example:
-
-```bash
-chmod 755 script.sh
-```
-
-Meaning:
-
-* Owner → `rwx`
-* Group → `r-x`
-* Others → `r-x`
-
-📊 Visualization:
-
-```
-7 5 5
-rwx r-x r-x
+```-rwxr-xr-- 1 user group 1234 Aug 22 10:00 script.sh
 ```
 
 ---
 
-### (B) Symbolic Method
+## 🎯 Visual Breakdown of Permissions
 
-Use letters + operators:
+```
+┌─────────┬──────────┬─────────┐
+│  User   │  Group   │ Others  │
+├─────────┼──────────┼─────────┤
+│   rwx   │   r-x    │   r--   │
+└─────────┴──────────┴─────────┘
+```
 
-* `u` (user/owner), `g` (group), `o` (others), `a` (all)
-* `+` (add), `-` (remove), `=` (set exact)
+* **User (Owner):** Has full access → `rwx`
+* **Group:** Can read & execute → `r-x`
+* **Others:** Can only read → `r--`
 
-✅ Examples:
+👉 This matches the permission string: `-rwxr-xr--`
+
+---
+
+## 🔧 Using `chmod` (Change Permissions)
+
+### 1️⃣ Symbolic Method
 
 ```bash
-chmod u+x script.sh     # Add execute for owner
-chmod g-w notes.txt     # Remove write from group
-chmod o=r file.txt      # Set others to read only
-chmod a+r report.txt    # Everyone gets read access
+chmod u+x script.sh
+```
+
+* Adds execute permission for the **user**.
+
+```bash
+chmod g-w script.sh
+```
+
+* Removes write permission from the **group**.
+
+```bash
+chmod o=r script.sh
+```
+
+* Sets others’ permissions to **read only**.
+
+---
+
+### 2️⃣ Numeric Method
+
+Permissions can be represented in **octal numbers**:
+
+| Number | Permission | Binary | Meaning                |
+| ------ | ---------- | ------ | ---------------------- |
+| `7`    | rwx        | 111    | Read + Write + Execute |
+| `6`    | rw-        | 110    | Read + Write           |
+| `5`    | r-x        | 101    | Read + Execute         |
+| `4`    | r--        | 100    | Read only              |
+| `0`    | ---        | 000    | No access              |
+
+Example:
+
+```bash
+chmod 754 script.sh
+```
+
+* User → `7 (rwx)`
+* Group → `5 (r-x)`
+* Others → `4 (r--)`
+
+---
+
+## 👑 Using `chown` (Change Ownership)
+
+Change file owner:
+
+```bash
+sudo chown newuser script.sh
+```
+
+Change file owner and group:
+
+```bash
+sudo chown newuser:newgroup script.sh
 ```
 
 ---
 
-### (C) Recursive Changes
+## 📊 Ownership Flow (Mermaid Diagram)
 
-Apply changes to all files/subfolders:
-
-```bash
-chmod -R 755 mydir/
+```mermaid
+flowchart TD
+    A[User] -->|owns| C[File]
+    B[Group] -->|associated with| C[File]
+    A -->|belongs to| B
+    C -->|permissions controlled by| D[chmod]
+    C -->|ownership controlled by| E[chown]
 ```
 
 ---
 
-## 🔹 3. `chown` – Change File Ownership
+## 📊 Command Summary
 
-### ⚙️ Syntax
+| Command                 | Description                        |
+| ----------------------- | ---------------------------------- |
+| `ls -l`                 | View file permissions & ownership  |
+| `chmod u+x file`        | Add execute permission for user    |
+| `chmod g-w file`        | Remove write permission for group  |
+| `chmod 754 file`        | Set permissions using octal values |
+| `chown user file`       | Change file owner                  |
+| `chown user:group file` | Change file owner and group        |
 
-```bash
-chown [options] new_owner:new_group filename
-```
+---
 
-✅ Examples:
+## 📸 Example Screenshot
 
-```bash
-chown mudit file.txt           # Change owner to mudit
-chown mudit:dev file.txt       # Change owner to mudit, group to dev
-chown :dev file.txt            # Change only group to dev
-chown -R mudit:dev /project    # Recursive ownership change
+(Add your screenshot in an `images/` folder and reference like below 👇)
+
+```markdown
+`
+![screenshot of s9](s9.png)
 ```
 
 ---
 
-## 🔹 4. Putting It All Together
+## ✅ Key Takeaways
 
-```bash
-touch project.sh
-ls -l project.sh
-```
+* **`chmod`** → Controls **permissions** (who can read/write/execute).
+* **`chown`** → Controls **ownership** (who owns the file/group).
+* Always verify changes with:
 
-Output:
+  ```bash
+  ls -l
+  ```
 
-```
--rw-r--r-- 1 mudit dev 0 Aug 19 12:00 project.sh
-```
+---
 
-Now:
+💡 **Pro Tip:** Restrict permissions as much as possible for security. Example → scripts should only be **executable by the owner**.
 
-```bash
-chmod 700 project.sh       # Owner = rwx, no access to others
-chmod u+x,g-w project.sh   # Add execute to owner, remove write for group
-chown root:admin project.sh # Change owner to root, group to admin
 ```
 
 ---
 
-## 🔹 5. Quick Reference Cheat Sheet 📑
-
-| Numeric | Permission | Meaning         |
-| ------- | ---------- | --------------- |
-| 0       | ---        | No access       |
-| 1       | --x        | Execute only    |
-| 2       | -w-        | Write only      |
-| 3       | -wx        | Write + Execute |
-| 4       | r--        | Read only       |
-| 5       | r-x        | Read + Execute  |
-| 6       | rw-        | Read + Write    |
-| 7       | rwx        | Full access     |
-
----
-
-✅ **Pro Tip:** Use **numeric mode** for quick settings (e.g., `755`, `644`) and **symbolic mode** for fine-tuning (`u+x`, `g-w`).
-
-✨ With `chmod` + `chown`, you’re now in full control of your Linux files! 🎉
-
-```
-```
+⚡ N
