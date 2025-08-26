@@ -272,6 +272,8 @@ Keep practicing by writing **small utility scripts** to master it!
 ---
 
 ```
+![Screenshot of A3](A3.png)
+![Screenshot of A3](A3.png)
 
 
 
