@@ -213,7 +213,7 @@ done
 ![screenshot of A2](A2.png)
 ```
 
----
+```
 
 ## 9️⃣ Useful Commands in Scripts
 
