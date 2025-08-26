@@ -209,6 +209,9 @@ for fruit in "${fruits[@]}"; do
     echo "Fruit: $fruit"
 done
 ```
+![screenshot of A1](A1.png)
+![screenshot of A2](A2.png)
+```
 
 ---
 
