@@ -42,7 +42,7 @@ cp -r dir1 dir2                  # Copy directory recursively
 cp -p source.txt backup.txt      # Preserve attributes
 ```
 
-![cp example](images/cp-demo.png)
+![screenshot of zx1](zx1.png)
 *Copying files with `cp` command.*
 
 > ⚠️ **Warning:** Overwrites files without confirmation unless `-i` is used.
@@ -57,7 +57,7 @@ mv file.txt /path/to/destination/
 mv -f file.txt /destination/    # Force move without prompt
 ```
 
-![mv example](images/mv-demo.png)
+![screenshot of zx2](zx2.png)
 
 ---
 
@@ -70,7 +70,7 @@ rm -r foldername/               # Remove a directory recursively
 rm -rf foldername/              # Force remove without prompt
 ```
 
-![rm example](images/rm-demo.png)
+![screenshot of zx3](zx3.png)
 
 > ⚠️ **Danger:** `rm -rf` permanently deletes without recovery!
 
