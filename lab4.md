@@ -84,7 +84,7 @@ Expected output:
 
 ## 📸 Screenshot Example
 
-![Ownership verification](s5.png)
+![screenshot of src11](src11.png)
 
 ---
 
