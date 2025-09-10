@@ -87,6 +87,8 @@ echo "Enter your favorite language:"
 read lang
 echo "You chose $lang"
 ```
+| ![screenshot of scr1](scr1.png) | ![screenshot of scr2](scr2.png) |
+
 
 ---
 
@@ -102,6 +104,8 @@ else
     echo "Number is less than or equal to 5"
 fi
 ```
+![screenshot of scr3](scr3.png)
+![screenshot of scr4](scr4.png)
 
 🧮 Operators:
 
@@ -124,6 +128,8 @@ do
     echo "Iteration $i"
 done
 ```
+![screenshot of scr6](scr6.png)
+![screenshot of scr6_](scr6_.png)
 
 🔁 **While Loop**
 
@@ -146,6 +152,8 @@ do
     ((x++))
 done
 ```
+![screenshot of scr7](scr7.png)
+![screenshot of scr7_](scr7_.png)
 
 ---
 
@@ -159,6 +167,8 @@ greet() {
 greet Mudit
 greet World
 ```
+![screenshot of scr9](scr9.png)
+![screenshot of scr9_](scr9_.png)
 
 Output:
 
@@ -197,6 +207,8 @@ Number of arguments: 2
 ```
 
 ---
+![screenshot of scr10](scr10.png)
+![screenshot of scr10_](scr10_.png)
 
 ## 8️⃣ Arrays
 
@@ -272,8 +284,8 @@ Keep practicing by writing **small utility scripts** to master it!
 ---
 
 ```
-![Screenshot of A3](A3.png)
-![Screenshot of A3](A3.png)
+
+
 
 
 
