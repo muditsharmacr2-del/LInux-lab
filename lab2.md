@@ -76,47 +76,6 @@ rm -rf foldername/              # Force remove without prompt
 
 ---
 
-### 📜 **`cat` – View or Concatenate Files**
-
-```bash
-cat file.txt                    # Display file contents
-cat file1.txt file2.txt > combined.txt
-cat -n file.txt                  # Show line numbers
-```
-
-![cat example](images/cat-demo.png)
-
----
-
-### 📖 **`less` – View File One Page at a Time**
-
-```bash
-less file.txt
-# Space → next page
-# b → previous page
-# q → quit
-```
-
-![less example](images/less-demo.png)
-
----
-
-### 🔝 **`head` – Show First Lines of a File**
-
-```bash
-head file.txt                    # First 10 lines (default)
-head -n 20 file.txt               # First 20 lines
-```
-
----
-
-### 🔚 **`tail` – Show Last Lines of a File**
-
-```bash
-tail file.txt                     # Last 10 lines (default)
-tail -n 15 file.txt                # Last 15 lines
-tail -f logfile.txt                # Monitor in real-time
-```
 
 ---
 

@@ -84,9 +84,10 @@ Expected output:
 
 ## 📸 Screenshot Example
 
-![screenshot of src11](src11.png)
 
----
+![screenshot of scr11](scr11.png)
+
+
 
 ## ✅ Key Takeaways
 
