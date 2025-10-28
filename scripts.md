@@ -67,6 +67,7 @@ My name is Mudit and I am 18 years old.
 ```
 
 ![Screenshot of sq2](sq2.png)
+![Screenshot of sq5.png](sq5.png)
 
 🌍 **Environment Variables**
 
